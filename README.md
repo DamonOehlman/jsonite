@@ -6,7 +6,7 @@ new apis.
 
 [![NPM](https://nodei.co/npm/jsonite.png)](https://nodei.co/npm/jsonite/)
 
-[![experimental](https://img.shields.io/badge/stability-experimental-red.svg)](https://github.com/dominictarr/stability#experimental) 
+[![experimental](https://img.shields.io/badge/stability-experimental-red.svg)](https://github.com/dominictarr/stability#experimental) [![Build Status](https://img.shields.io/travis/DamonOehlman/jsonite.svg?branch=master)](https://travis-ci.org/DamonOehlman/jsonite) 
 
 ## Example Usage
 
