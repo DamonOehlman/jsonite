@@ -1,0 +1,27 @@
+{
+  "name": "jsonite",
+  "version": "0.0.0",
+  "description": "A server for prototyping jsonapi compliant apis backed by leveldb",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/all.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DamonOehlman/jsonite.git"
+  },
+  "keywords": [
+    "jsonapi",
+    "json-api",
+    "json",
+    "leveldb",
+    "api",
+    "prototype"
+  ],
+  "author": "Damon Oehlman <damon.oehlman@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DamonOehlman/jsonite/issues"
+  },
+  "homepage": "https://github.com/DamonOehlman/jsonite"
+}
