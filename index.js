@@ -1,4 +1,5 @@
 var debug = require('debug')('jsonite');
+var EventEmitter = require('events').EventEmitter;
 var levelup = require('levelup');
 var bee = require('beeline');
 
@@ -17,13 +18,11 @@ var bee = require('beeline');
 module.exports = function(opts) {
   var registry = new EventEmitter();
   var resources = {};
+  var router = registry.router = bee.route();
 
   function defineResource(name, details) {
     debug('defining resource: ' + name, details);
   }
-
-  // create the router
-  register.router = bee.route();
 
   // associate the helper functions
   registry.resource = defineResource;

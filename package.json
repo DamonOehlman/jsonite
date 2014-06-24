@@ -28,6 +28,12 @@
   "homepage": "https://github.com/DamonOehlman/jsonite",
   "dependencies": {
     "beeline": "^0.2.2",
-    "debug": "^1.0.2"
+    "debug": "^1.0.2",
+    "levelup": "^0.18.4"
+  },
+  "devDependencies": {
+    "leveldown": "^0.10.2",
+    "rimraf": "^2.2.8",
+    "tape": "^2.13.3"
   }
 }
