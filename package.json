@@ -4,7 +4,8 @@
   "description": "A server for prototyping jsonapi compliant apis backed by leveldb",
   "main": "index.js",
   "scripts": {
-    "test": "node test/all.js"
+    "test": "node test/all.js",
+    "gendocs": "gendocs > README.md"
   },
   "stability": "experimental",
   "repository": {
