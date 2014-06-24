@@ -17,19 +17,35 @@ var api = jsonite();
 var server = http.createServer(api.router);
 
 api.provide('author', {
-  name: String,
-  books: api.many('book')
+  name: api.types.string().required(),
+  books: api.ref('*book')
 });
 
 api.provide('book', {
-  title: String,
-  authors: api.many('author')
+  title: api.types.string().required(),
+  authors: api.ref('*author')
 });
 
 server.listen(3000);
 
 
 ```
+
+## Prior Art
+
+The following are other systems that provide similar functionality to jsonite:
+
+- [fortune](https://github.com/daliwali/fortune)
+
+## References
+
+### jsonite(opts) => API
+
+Create a new `API` object that we are able to initialize.
+
+### API#provide(model, schema)
+
+Register a new model in the API.
 
 ## License(s)
 

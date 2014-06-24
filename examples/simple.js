@@ -4,13 +4,13 @@ var api = jsonite();
 var server = http.createServer(api.router);
 
 api.provide('author', {
-  name: String,
-  books: api.many('book')
+  name: api.types.string().required(),
+  books: api.ref('*book')
 });
 
 api.provide('book', {
-  title: String,
-  authors: api.many('author')
+  title: api.types.string().required(),
+  authors: api.ref('*author')
 });
 
 server.listen(3000);
