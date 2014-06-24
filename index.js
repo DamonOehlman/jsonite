@@ -1,7 +1,7 @@
 var debug = require('debug')('jsonite');
-var EventEmitter = require('events').EventEmitter;
 var levelup = require('levelup');
 var bee = require('beeline');
+var Joi = require('joi');
 
 /**
   # jsonite
@@ -13,19 +13,48 @@ var bee = require('beeline');
 
   <<< examples/simple.js
 
+  ## Prior Art
+
+  The following are other systems that provide similar functionality to jsonite:
+
+  - [fortune](https://github.com/daliwali/fortune)
+
+  ## References
+
+  ### jsonite(opts) => API
+
+  Create a new `API` object that we are able to initialize.
+
 **/
 
-module.exports = function(opts) {
-  var registry = new EventEmitter();
-  var resources = {};
-  var router = registry.router = bee.route();
-
-  function defineResource(name, details) {
-    debug('defining resource: ' + name, details);
+function API(opts) {
+  if (! (this instanceof API)) {
+    return new API(opts);
   }
 
-  // associate the helper functions
-  registry.resource = defineResource;
+  // use joi to assert types
+  this.types = Joi;
 
-  return registry;
+  // create the router
+  this.router = bee.route();
+
+  // initialise the model definitions
+  this.models = {};
+}
+
+module.exports = API;
+var prot = API.prototype;
+
+/**
+  ### API#provide(model, schema)
+
+  Register a new model in the API.
+
+**/
+prot.provide = function(model, schema) {
+  if (! schema) {
+    return;
+  }
+
+  return this.models[model] = Joi.object().keys(schema);
 };

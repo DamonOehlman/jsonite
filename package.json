@@ -29,6 +29,7 @@
   "dependencies": {
     "beeline": "^0.2.2",
     "debug": "^1.0.2",
+    "joi": "^4.6.1",
     "levelup": "^0.18.4"
   },
   "devDependencies": {
