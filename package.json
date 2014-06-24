@@ -23,5 +23,9 @@
   "bugs": {
     "url": "https://github.com/DamonOehlman/jsonite/issues"
   },
-  "homepage": "https://github.com/DamonOehlman/jsonite"
+  "homepage": "https://github.com/DamonOehlman/jsonite",
+  "dependencies": {
+    "beeline": "^0.2.2",
+    "debug": "^1.0.2"
+  }
 }
