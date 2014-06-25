@@ -1,7 +1,7 @@
 var debug = require('debug')('jsonite');
-var levelup = require('levelup');
 var bee = require('beeline');
 var Joi = require('joi');
+var store = require('./store');
 
 /**
   # jsonite
@@ -40,21 +40,29 @@ function API(opts) {
 
   // initialise the model definitions
   this.models = {};
+
+  // initialise the store
+  this.store = store(opts);
 }
 
 module.exports = API;
 var prot = API.prototype;
 
 /**
-  ### API#provide(model, schema)
+  ### API#provide(name, schema)
 
   Register a new model in the API.
 
 **/
-prot.provide = function(model, schema) {
+prot.provide = function(name, schema) {
+  var model;
   if (! schema) {
     return;
   }
 
-  return this.models[model] = Joi.object().keys(schema);
+  // create the model
+  model = this.models[name] = Joi.object().keys(schema);
+
+  // create the handlers for the route
+  return model;
 };
