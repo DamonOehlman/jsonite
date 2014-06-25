@@ -3,6 +3,7 @@ var jsonite = require('../');
 var path = require('path');
 var http = require('http');
 var rimraf = require('rimraf');
+var compliance = require('jsonapi-compliance');
 var api;
 var server;
 
@@ -27,6 +28,13 @@ test('can start server routing to the registry', function(t) {
 
 test('run subtests', function(t) {
   require('./define-resources')(api, t.test);
+});
+
+test('invoke compliance tests', function(t) {
+  t.plan(1);
+  compliance({ url: 'http://localhost:3000/' }, function(err) {
+    t.ifError(err, 'compliance tests failed');
+  });
 });
 
 test('can stop the registry server', function(t) {
