@@ -35,6 +35,7 @@
   "devDependencies": {
     "leveldown": "^0.10.2",
     "rimraf": "^2.2.8",
-    "tape": "^2.13.3"
+    "tape": "^2.13.3",
+    "jsonapi-compliance": "DamonOehlman/jsonapi-compliance"
   }
 }
