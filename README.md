@@ -1,7 +1,11 @@
 # jsonite
 
-This is a [jsonapi](http://jsonapi.org) API server designed for prototyping
-new apis.
+This is an API server designed for prototyping new [jsonapi](http://jsonapi.org)
+compliant apis.  Uses the following packages to make magic happen:
+
+- [levelup](https://github.com/rvagg/node-levelup) - persistence to leveldb.
+- [joi](https://github.com/spumko/joi) - model schemas and validation
+- [beeline](https://github.com/xavi/beeline) - lightweight URL routing
 
 
 [![NPM](https://nodei.co/npm/jsonite.png)](https://nodei.co/npm/jsonite/)
@@ -28,7 +32,6 @@ api.provide('book', {
 
 server.listen(3000);
 
-
 ```
 
 ## Prior Art
@@ -43,7 +46,7 @@ The following are other systems that provide similar functionality to jsonite:
 
 Create a new `API` object that we are able to initialize.
 
-### API#provide(model, schema)
+### API#provide(name, schema)
 
 Register a new model in the API.
 
