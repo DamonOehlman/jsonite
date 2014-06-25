@@ -2,12 +2,17 @@ var debug = require('debug')('jsonite');
 var bee = require('beeline');
 var Joi = require('joi');
 var store = require('./store');
+var modelrouter = require('./modelrouter');
 
 /**
   # jsonite
 
-  This is a [jsonapi](http://jsonapi.org) API server designed for prototyping
-  new apis.
+  This is an API server designed for prototyping new [jsonapi](http://jsonapi.org)
+  compliant apis.  Uses the following packages to make magic happen:
+
+  - [levelup](https://github.com/rvagg/node-levelup) - persistence to leveldb.
+  - [joi](https://github.com/spumko/joi) - model schemas and validation
+  - [beeline](https://github.com/xavi/beeline) - lightweight URL routing
 
   ## Example Usage
 
@@ -64,5 +69,7 @@ prot.provide = function(name, schema) {
   model = this.models[name] = Joi.object().keys(schema);
 
   // create the handlers for the route
+  this.router.add(modelrouter(name, model, this.store));
+
   return model;
 };
