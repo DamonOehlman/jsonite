@@ -30,6 +30,8 @@ module.exports = function(opts) {
         return callback(err);
       }
 
+      // inject the id into the data
+      data = extend({}, data, { id: id });
       substore(type).put(id, data, function(err) {
         callback(err, data);
       });
