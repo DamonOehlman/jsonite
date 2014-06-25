@@ -8,7 +8,9 @@ var modelrouter = require('./modelrouter');
   # jsonite
 
   This is an API server designed for prototyping new [jsonapi](http://jsonapi.org)
-  compliant apis.  Uses the following packages to make magic happen:
+  compliant apis.
+
+  ## Powered By
 
   - [levelup](https://github.com/rvagg/node-levelup) - persistence to leveldb.
   - [joi](https://github.com/spumko/joi) - model schemas and validation

@@ -1,16 +1,18 @@
 # jsonite
 
 This is an API server designed for prototyping new [jsonapi](http://jsonapi.org)
-compliant apis.  Uses the following packages to make magic happen:
-
-- [levelup](https://github.com/rvagg/node-levelup) - persistence to leveldb.
-- [joi](https://github.com/spumko/joi) - model schemas and validation
-- [beeline](https://github.com/xavi/beeline) - lightweight URL routing
+compliant apis.
 
 
 [![NPM](https://nodei.co/npm/jsonite.png)](https://nodei.co/npm/jsonite/)
 
 [![experimental](https://img.shields.io/badge/stability-experimental-red.svg)](https://github.com/dominictarr/stability#experimental) [![Build Status](https://img.shields.io/travis/DamonOehlman/jsonite.svg?branch=master)](https://travis-ci.org/DamonOehlman/jsonite) 
+
+## Powered By
+
+- [levelup](https://github.com/rvagg/node-levelup) - persistence to leveldb.
+- [joi](https://github.com/spumko/joi) - model schemas and validation
+- [beeline](https://github.com/xavi/beeline) - lightweight URL routing
 
 ## Example Usage
 
@@ -31,6 +33,7 @@ api.provide('book', {
 });
 
 server.listen(3000);
+
 
 ```
 
