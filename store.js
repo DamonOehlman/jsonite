@@ -1,7 +1,6 @@
 var debug = require('debug')('jsonite:store');
 var levelup = require('levelup');
 var sublevel = require('level-sublevel');
-var mapped = require('level-mapped-index');
 var path = require('path');
 var extend = require('xtend');
 
