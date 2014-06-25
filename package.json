@@ -1,6 +1,6 @@
 {
   "name": "jsonite",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A server for prototyping jsonapi compliant apis backed by leveldb",
   "main": "index.js",
   "scripts": {
