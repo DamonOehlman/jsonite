@@ -33,7 +33,7 @@ test('run subtests', function(t) {
 test('invoke compliance tests', function(t) {
   t.plan(1);
   compliance({ url: 'http://localhost:3000/' }, function(err) {
-    t.ifError(err, 'compliance tests failed');
+    t.ifError(err, 'compliance tests ok');
   });
 });
 

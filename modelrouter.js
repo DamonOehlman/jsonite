@@ -26,6 +26,13 @@ function abort(res, err) {
   res.end(data[1] || 'An unknown error has occurred');
 }
 
+function ok(res, statusCode, body) {
+  res.writeHead(statusCode, {
+    'Content-Type': mime.json
+  });
+  res.end(JSON.stringify(body));
+}
+
 function checkContentType(req) {
   var contentType = req.headers['content-type'];
 
@@ -65,11 +72,19 @@ module.exports = function(name, schema, store) {
     'GET': function(req, res) {
     },
 
-    'POST': cap(function(data, req, req) {
+    'POST': cap(function(data, req, res) {
       Joi.validate(data, schema, { abortEarly: false }, function(err, value) {
         if (err) {
           return abort(res, err);
         }
+
+        store.create(name, data, function(err, output) {
+          if (err) {
+            return abort(res, err);
+          }
+
+          ok(res, 201, output);
+        });
       });
     })
   };
