@@ -9,7 +9,7 @@ var server;
 
 test('can reset the data storage', function(t) {
   t.plan(1);
-  rimraf(path.resolve(__dirname, '..', 'data'), t.ifError);
+  rimraf(path.resolve(__dirname, '..', 'jsonite-data'), t.ifError);
 });
 
 test('can create an api instance', function(t) {
