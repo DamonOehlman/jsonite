@@ -28,6 +28,7 @@
   "homepage": "https://github.com/DamonOehlman/jsonite",
   "dependencies": {
     "beeline": "^0.2.2",
+    "concat-stream": "^1.4.6",
     "debug": "^1.0.2",
     "joi": "^4.6.1",
     "levelup": "^0.18.4"
